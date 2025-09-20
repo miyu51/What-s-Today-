@@ -56,3 +56,13 @@ document.getElementById("show-event").addEventListener("click", async () => {
   document.getElementById("result").textContent = randomItem;
   document.getElementById("result").style.display = "block";
 });
+
+document.getElementById("share-x").addEventListener("click", () => {
+  const text = document.getElementById("result").textContent.trim();
+  if (!text) return;
+
+  const encodedText = encodeURIComponent(text);
+  const shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
+
+  window.open(shareUrl, "_blank");
+});
